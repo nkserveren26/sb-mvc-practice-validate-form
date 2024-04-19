@@ -21,15 +21,16 @@ public class Customer {
     @Size(min=1, message = "is required")
     private String lastName = "";
 
+    @NotNull(message = "is required")
     @Min(value = 0, message = "must be greater than or equal to zero")
     @Max(value = 10, message = "must be greater than or equal to 10")
-    private String freePasses;
+    private Integer freePasses;
 
-    public String getFreePasses() {
+    public Integer getFreePasses() {
         return freePasses;
     }
 
-    public void setFreePasses(String freePasses) {
+    public void setFreePasses(Integer freePasses) {
         this.freePasses = freePasses;
     }
 
