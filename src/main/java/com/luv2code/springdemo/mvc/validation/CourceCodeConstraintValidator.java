@@ -3,18 +3,26 @@ package com.luv2code.springdemo.mvc.validation;
 import jakarta.validation.ConstraintValidator;
 import jakarta.validation.ConstraintValidatorContext;
 
-public class CourceCodeConstraintValidator implements ConstraintValidator<CourceCode, String> {
+public class CourceCodeConstraintValidator implements ConstraintValidator<CourseCode, String> {
 
 
     private String coursePrefix;
     @Override
-    public void initialize(CourceCode theCourseCode) {
+    public void initialize(CourseCode theCourseCode) {
         coursePrefix = theCourseCode.value();
     }
 
     @Override
     public boolean isValid(String theCode, ConstraintValidatorContext theConstraintValidatorContext) {
-        boolean result = theCode.startsWith(coursePrefix);
+
+        boolean result;
+
+        if (theCode != null) {
+            result = theCode.startsWith(coursePrefix);
+        } else {
+            result = true;
+        }
+
         return result;
     }
 }

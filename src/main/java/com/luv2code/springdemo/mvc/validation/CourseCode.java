@@ -11,7 +11,7 @@ import java.lang.annotation.Target;
 @Constraint(validatedBy = CourceCodeConstraintValidator.class)
 @Target({ElementType.METHOD, ElementType.FIELD})
 @Retention(RetentionPolicy.RUNTIME)
-public @interface CourceCode {
+public @interface CourseCode {
 
     // define default cource code
     public String value() default "LUV";
